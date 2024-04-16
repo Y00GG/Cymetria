@@ -4,13 +4,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Input, Button } from "@nextui-org/react";
 
-
+//Esta funcion nos permite tener un minimo de 5 caracteres para buscar el estudiante
 const schema = z.object({
     cedula: z.number().min(5, { message: 'Este campo es obligatorio' }),
 });
 
 const Formulario = ({ setEstudianteBuscado }) => {
 
+    //Nos permite identificar que nos entrega y que formulario nos da la informacion deseada para evitar utilizar useState y el onChange como tipicamente se hace la captura de informacion de los formularios
     const {
         register,
         handleSubmit,
@@ -18,6 +19,7 @@ const Formulario = ({ setEstudianteBuscado }) => {
     } = useForm({
         resolver: zodResolver(schema),
     });
+
     return (
         <div className='flex justify-center flex-col'>
             <form className='flex flex-col gap-4 w-full' onSubmit={handleSubmit((d) => setEstudianteBuscado(d.cedula))}>

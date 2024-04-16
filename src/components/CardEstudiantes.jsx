@@ -3,6 +3,8 @@ import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@n
 
 const CardEstudiantes = ({ estudiante }) => {
 
+    //Se muestra en un card el estudiante filtrado previamente en el componente padre
+
     return (
         <Card className="max-w-[400px]">
             <CardHeader className="flex gap-3">

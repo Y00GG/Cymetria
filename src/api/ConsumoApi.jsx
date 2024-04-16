@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 
 const ConsumoApi = ({ setEstudiantes }) => {
 
-    //
+    //En este apartado se consume de una manera simple la API aunque no deberia ser en un componente se hizo de esta manera para facilitar la modificacion del listado y captar los errores
 
     useEffect(() => {
         const obtenerEstudiantesAprobados = async () => {
@@ -14,6 +14,7 @@ const ConsumoApi = ({ setEstudiantes }) => {
 
                 if (data.ok) {
                     const estudiantesAprobados = data.estudiantes_aprobados.map(estudiante => ({
+                        //Se hace un resgistro de todos los estudiantes para posteriormente filtrar ese listado de objetos
                         nombre: estudiante.estudiante.nombres,
                         apellidos: estudiante.estudiante.apellidos,
                         tipoDocumento: estudiante.estudiante.tipo_documento,
